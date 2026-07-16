@@ -13,15 +13,41 @@ runs one disciplined pass — collect, ground, extend (tagged), object, link, st
 - **A steer card** — your open decisions as a compact ballot, never bulk-approved.
 - **Exactly one idea-pool entry per burst** — no note inflation.
 
+## What a run looks like
+
+You fire five half-formed messages:
+
+> "maybe my site should be a garden, not a feed" · "and notes could link both ways" ·
+> "what if drafts are public but marked" · "also a /now page" · "kind of a digital
+> garden thing"
+
+Instead of five "noted"s, you get one **SEED MAP**:
+
+> **Vision (one sentence):** the site becomes a bidirectionally-linked digital garden
+> where even drafts are public, staged by maturity.
+> **Ground:** overlaps your `notes/site-redesign.md` from March (feed fatigue — pointer);
+> the /now page is NEW.
+> **Extension** `[assistant-extension]`: maturity badges (seedling/budding/evergreen) —
+> not your idea until you confirm it.
+> **Strongest objection:** public drafts change how you write; if self-censorship kicks
+> in, the garden loses exactly what made it worth keeping.
+> **Steer card:** 1) drafts public from day one, or staged? 2) badges: yes/no? 3) migrate
+> old posts or start fresh?
+> **Banked:** one entry appended to `notes/idea-pool.md`.
+
 ## Install
 
 ```
-mkdir -p .claude/skills/idea-boost
-cp SKILL.md .claude/skills/idea-boost/SKILL.md
+git clone https://github.com/yagizkaterli/idea-boost
+# macOS/Linux
+mkdir -p .claude/skills/idea-boost && cp idea-boost/SKILL.md .claude/skills/idea-boost/
+# Windows (PowerShell)
+New-Item -ItemType Directory -Force .claude\skills\idea-boost | Out-Null
+Copy-Item idea-boost\SKILL.md .claude\skills\idea-boost\
 ```
 
 Then in Claude Code: type `/idea-boost`, or just fire ideas — two or more rapid seed
-messages trigger it.
+messages trigger it. (Trigger behavior per harness version is tracked in TESTING.md.)
 
 ## Configure
 

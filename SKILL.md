@@ -44,6 +44,9 @@ idea-pool entry on disk.
 
 - **NO EXECUTION.** Seed layer: no code, config, or canon changes; implementation requires
   the user's explicit approval chain.
+- **WRITE BOUNDARY (exact).** The ONLY permitted write is the append to the idea-pool file
+  (step 7). Git commit is OFF by default (enable in Configuration); git push NEVER happens
+  without the human's explicit go — regardless of configuration.
 - **NO NEW PROJECTS.** Respect parked items and their wake conditions.
 - **TAG HYGIENE.** User-seed / assistant-extension / measured-ground are three distinct
   classes — mixing them fabricates intent the user never expressed.
@@ -56,7 +59,9 @@ idea-pool entry on disk.
 Point these at your own setup:
 - **Idea pool**: any append-friendly notes file (e.g. `notes/idea-pool.md`).
 - **Ground sources**: the documents that count as "what already exists" for step 2.
-- **Commit policy**: whether step 7 may commit/push, or only write.
+- **Commit policy**: whether step 7 may `git commit` the idea-pool append (default: OFF —
+  write only). Push is not a configuration option: it always requires the human's explicit
+  approval in the moment.
 
 ---
 *Origin: distilled 2026-07-17 from a live curator session of the HERAKLES multi-agent
