@@ -1,41 +1,14 @@
-# idea-boost
+# idea-boost — turn a burst of half-formed ideas into one grounded map
 
-A tiny [Claude Code skill](https://docs.anthropic.com) for **idea-burst sessions**: when
-you fire five half-formed ideas in a row, the assistant stops replying "noted" and instead
-runs one disciplined pass — collect, ground, extend (tagged), object, link, steer, bank.
+**1** A [Claude Code](https://docs.anthropic.com) skill: when you fire several half-formed ideas in a row, the assistant runs one disciplined pass instead of replying "noted" five times.
 
-## What you get
+**1.1** The pass: collect → ground against your notes → extend (tagged) → raise the strongest objection → link → steer card → bank one idea-pool entry.
 
-- **One seed map** instead of five acknowledgements.
-- **Grounding with file pointers** — "this already exists in your notes" vs "this is new".
-- **Tagged extensions** — the assistant's additions are never silently mixed with yours.
-- **A mandatory strongest objection** — no flattery loop.
-- **A steer card** — your open decisions as a compact ballot, never bulk-approved.
-- **Exactly one idea-pool entry per burst** — no note inflation.
+**1.2** Extensions are tagged as the assistant's, never mixed silently with yours. A seed that cannot survive its strongest objection is marked early, not flattered.
 
-## What a run looks like
+**2** Why: idea-burst sessions fail when the assistant amplifies everything equally. One seed map + one banked entry beats five acknowledgements and note inflation.
 
-You fire five half-formed messages:
-
-> "maybe my site should be a garden, not a feed" · "and notes could link both ways" ·
-> "what if drafts are public but marked" · "also a /now page" · "kind of a digital
-> garden thing"
-
-Instead of five "noted"s, you get one **SEED MAP**:
-
-> **Vision (one sentence):** the site becomes a bidirectionally-linked digital garden
-> where even drafts are public, staged by maturity.
-> **Ground:** overlaps your `notes/site-redesign.md` from March (feed fatigue — pointer);
-> the /now page is NEW.
-> **Extension** `[assistant-extension]`: maturity badges (seedling/budding/evergreen) —
-> not your idea until you confirm it.
-> **Strongest objection:** public drafts change how you write; if self-censorship kicks
-> in, the garden loses exactly what made it worth keeping.
-> **Steer card:** 1) drafts public from day one, or staged? 2) badges: yes/no? 3) migrate
-> old posts or start fresh?
-> **Banked:** one entry appended to `notes/idea-pool.md`.
-
-## Install
+**3** How to run
 
 ```
 git clone https://github.com/yagizkaterli/idea-boost
@@ -46,23 +19,31 @@ New-Item -ItemType Directory -Force .claude\skills\idea-boost | Out-Null
 Copy-Item idea-boost\SKILL.md .claude\skills\idea-boost\
 ```
 
-Then in Claude Code: type `/idea-boost`, or just fire ideas — two or more rapid seed
-messages trigger it. (Trigger behavior per harness version is tracked in TESTING.md.)
+Then in Claude Code: type `/idea-boost`, or fire two or more rapid seed messages. Trigger behavior by harness version is in `TESTING.md`. Configure the idea-pool path and ground-truth docs at the bottom of `SKILL.md`.
 
-## Configure
+**4** What a run looks like
 
-Edit the **Configuration** section at the bottom of `SKILL.md`: point the idea pool at
-your own notes file and list which documents count as "ground truth" for the overlap
-check.
+You fire five half-formed messages:
 
-## Why the objection step is mandatory
+> "maybe my site should be a garden, not a feed" · "and notes could link both ways" ·
+> "what if drafts are public but marked" · "also a /now page" · "kind of a digital
+> garden thing"
 
-The failure mode of idea-burst sessions isn't losing ideas — it's an assistant that
-amplifies everything equally. A seed that survives its strongest objection is worth
-building; one that doesn't is worth knowing about early. "No objection" is treated as an
-invalid answer by design.
+Instead of five "noted"s, you get one **SEED MAP**: vision in one sentence, ground (file pointers), tagged extension, strongest objection, steer card, one banked entry.
+
+**5** Status (honest)
+
+- Public skill package for Claude Code — **live**, not archived.
+- Solo-maintained by [yagizkaterli](https://github.com/yagizkaterli). **0 stars.** Small repo (skill file + tests note).
+- No product surface, no SaaS, no multi-user runtime. Seed layer only; implementation needs your explicit approval.
+
+**6** Related
+
+- [foundation](https://github.com/yagizkaterli/foundation) — portable multi-agent working discipline
+- [human-steps](https://github.com/yagizkaterli/human-steps) — never bury what you need from the human
+- [frictionless](https://github.com/yagizkaterli/frictionless) — hand work back without handing back labour
+- [perfect-form](https://github.com/yagizkaterli/perfect-form) — long sessions without form decay
 
 ## License
 
-MIT. Origin note: distilled from a live session of the HERAKLES multi-agent system
-(2026-07-17).
+MIT. Origin: distilled from a live session of a multi-agent working system (2026-07-17).
