@@ -1,5 +1,9 @@
 # idea-boost — turn a burst of half-formed ideas into one grounded map
 
+<p align="center">
+  <img src="assets/idea-boost-map.svg" width="640" alt="Five half-formed seeds become one grounded map, not five acknowledgements">
+</p>
+
 **1** A [Claude Code](https://docs.anthropic.com) skill: when you fire several half-formed ideas in a row, the assistant runs one disciplined pass instead of replying "noted" five times.
 
 **1.1** The pass: collect → ground against your notes → extend (tagged) → raise the strongest objection → link → steer card → bank one idea-pool entry.
