@@ -12,6 +12,8 @@
 
 **2** Why: idea-burst sessions fail when the assistant amplifies everything equally. One seed map + one banked entry beats five acknowledgements and note inflation.
 
+## Install
+
 **3** How to run
 
 ```
